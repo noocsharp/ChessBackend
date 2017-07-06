@@ -31,6 +31,15 @@ public class Utilities {
         return Color.NONE;
     }
 
+    public static Piece searchForPos(ArrayList<Piece> pieces, Tuple<Integer, Integer> pos) {
+        for (Piece p : pieces) {
+            if (p.pos.x == pos.x && p.pos.y == pos.y) {
+                return p;
+            }
+        }
+        return null;
+    }
+
 
    /* public static ArrayList<Tuple<Integer, Integer>> pawnInfluence(ArrayList<Piece> pieces, Piece piece, int width, int height) {
         ArrayList<Tuple<Integer, Integer>> influence = new ArrayList<>();
