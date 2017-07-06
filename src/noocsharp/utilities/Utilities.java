@@ -40,6 +40,16 @@ public class Utilities {
         return null;
     }
 
+    public static int max(Integer[] array) {
+        int max = array[1];
+        for (int i : array) {
+            if (i > max) {
+                max = i;
+            }
+        }
+        return max;
+    }
+
 
    /* public static ArrayList<Tuple<Integer, Integer>> pawnInfluence(ArrayList<Piece> pieces, Piece piece, int width, int height) {
         ArrayList<Tuple<Integer, Integer>> influence = new ArrayList<>();
