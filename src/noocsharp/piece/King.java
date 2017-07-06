@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by nihal on 6/30/2017.
  */
 public class King extends Piece{
-    public King(Color color) {
-        super(color);
+    public King(Color color, Tuple<Integer, Integer> pos) {
+        super(color, pos);
     }
 }

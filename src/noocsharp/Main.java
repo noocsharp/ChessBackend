@@ -15,11 +15,18 @@ public class Main {
 
     public static void main(String[] args) {
         Chessboard board = new Chessboard(8, 8);
-        Piece[][] testBoard = board.getChessboardArray();
-        testBoard[4][1] = new Filler(Color.NONE);
-        testBoard[7][4] = new Bishop(Color.BLACK);
-        board.setChessboardArray(testBoard);
-        ArrayList<Tuple<Integer, Integer>> influence = Utilities.getInfluence(board, new Tuple<>(4, 0));
-        System.out.println(influence);
+        Pawn pawn = null;
+        ArrayList<Piece> localPieces = board.pieces;
+
+        localPieces.add(new Pawn(Color.BLACK, new Tuple<>(0, 2)));
+        localPieces.add(new Pawn(Color.BLACK, new Tuple<>(2, 2)));
+        for (Piece p : board.pieces) {
+            if (p.pos.x == 1 && p.pos.y == 1) {
+                pawn = (Pawn) p;
+            }
+        }
+
+        System.out.println(pawn.getInfluence(localPieces, 8, 8));
+
     }
 }

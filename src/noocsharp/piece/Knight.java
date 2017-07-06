@@ -7,7 +7,7 @@ import noocsharp.utilities.Tuple;
  * Created by nihal on 6/30/2017.
  */
 public class Knight extends Piece{
-    public Knight(Color color) {
-        super(color);
+    public Knight(Color color, Tuple<Integer, Integer> pos) {
+        super(color, pos);
     }
 }
