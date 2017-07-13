@@ -22,6 +22,7 @@ public class Utilities {
         return 0;
     }
 
+    // returns black if white and white if black (necessary because Color.NONE)
     public static Color oppositeColor(Color color) {
         if (color == Color.WHITE) {
             return Color.BLACK;
@@ -31,6 +32,7 @@ public class Utilities {
         return Color.NONE;
     }
 
+    // returns piece if piece's position is tuple
     public static Piece searchForPos(ArrayList<Piece> pieces, Tuple<Integer, Integer> pos) {
         for (Piece p : pieces) {
             if (p.pos.x == pos.x && p.pos.y == pos.y) {
@@ -40,6 +42,7 @@ public class Utilities {
         return null;
     }
 
+    // finds the max int in an array
     public static int max(Integer[] array) {
         int max = array[1];
         for (int i : array) {

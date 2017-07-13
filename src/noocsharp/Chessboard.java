@@ -83,6 +83,19 @@ public class Chessboard {
         */
     }
 
+    public void addPiece(Piece p) {
+        pieces.add(p);
+    }
+
+    public void removePiece(Tuple<Integer, Integer> pos) {
+        for (Iterator<Piece> iterator = pieces.iterator(); iterator.hasNext();) {
+            Piece p = iterator.next();
+            if (p.pos.x == pos.x && p.pos.y == pos.y) {
+                iterator.remove();
+            }
+        }
+    }
+
     // Returns true if move is successful, false if move is invalid
     public boolean makeMove() {
         return true;
@@ -103,9 +116,9 @@ public class Chessboard {
     public void setChessboardArray(Piece[][] newBoard) {
         this.chessboard = newBoard;
     }
-    */
     public void setChessboardArray(ArrayList<Piece> newPieceArray) {
         pieces = newPieceArray;
     }
 
+    */
 }
