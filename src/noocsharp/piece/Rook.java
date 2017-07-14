@@ -14,6 +14,7 @@ public class Rook extends Piece{
     public Rook(Color color, Tuple<Integer, Integer> pos) {
         super(color, pos);
     }
+
     public HashSet<Tuple<Integer, Integer>> getInfluence(ArrayList<Piece> pieces, int width, int height) {
         HashSet<Tuple<Integer, Integer>> influence = new HashSet<>();
 

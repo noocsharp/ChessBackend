@@ -13,17 +13,17 @@ public class Main {
     public static void main(String[] args) {
         Chessboard board = new Chessboard(8, 8);
         Pawn pawn = null;
-        Bishop bishop = null;
+        Queen queen = null;
         ArrayList<Piece> localPieces = board.pieces;
 
         board.removePiece(new Tuple<>(1, 1));
         board.removePiece(new Tuple<>(3, 1));
         for (Piece p : board.pieces) {
-            if (p.pos.x == 2 && p.pos.y == 0) {
-                bishop = (Bishop) p;
+            if (p.pos.x == 3 && p.pos.y == 0) {
+                queen = (Queen) p;
             }
         }
 
-        System.out.println(bishop.getInfluence(board.pieces, 8, 8));
+        System.out.println(queen.getInfluence(board.pieces, 8, 8));
     }
 }
