@@ -101,15 +101,17 @@ public class Chessboard {
         return true;
     }
 
-    // Checks if either king is in check
+    // Checks if king is in check
     private boolean updateCheck() {
+        for (Piece p : pieces) {
+        }
         return true;
     }
 
     /*public Piece[][] getChessboardArray() {
         return chessboard;
     }*/
-    public ArrayList<Piece> getPiecesArray() { return pieces;}
+    public ArrayList<Piece> getPiecesArray() { return pieces; }
 
 
     /*

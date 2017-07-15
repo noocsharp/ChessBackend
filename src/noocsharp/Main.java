@@ -14,16 +14,14 @@ public class Main {
         Chessboard board = new Chessboard(8, 8);
         Pawn pawn = null;
         Queen queen = null;
+        Knight knight = null;
         ArrayList<Piece> localPieces = board.pieces;
 
-        board.removePiece(new Tuple<>(1, 1));
-        board.removePiece(new Tuple<>(3, 1));
         for (Piece p : board.pieces) {
-            if (p.pos.x == 3 && p.pos.y == 0) {
-                queen = (Queen) p;
+            if (p.pos.x == 1 && p.pos.y == 0) {
+                knight = (Knight) p;
             }
         }
-
-        System.out.println(queen.getInfluence(board.pieces, 8, 8));
+        System.out.println(knight.getInfluence(board.pieces, 8, 8));
     }
 }

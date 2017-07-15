@@ -5,6 +5,7 @@ import noocsharp.utilities.Color;
 import noocsharp.utilities.Tuple;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Created by nihal on 6/30/2017.
@@ -19,5 +20,9 @@ public class Piece {
         this.hasMoved = false;
         this.color = color;
         this.pos =  pos;
+    }
+
+    public HashSet<Tuple<Integer, Integer>> getInfluence(ArrayList<Piece> pieces, int width, int height) {
+        return new HashSet<>();
     }
 }
