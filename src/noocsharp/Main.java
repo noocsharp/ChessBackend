@@ -15,13 +15,14 @@ public class Main {
         Pawn pawn = null;
         Queen queen = null;
         Knight knight = null;
+        King king = null;
         ArrayList<Piece> localPieces = board.pieces;
 
         for (Piece p : board.pieces) {
-            if (p.pos.x == 1 && p.pos.y == 0) {
-                knight = (Knight) p;
+            if (p.pos.x == 4 && p.pos.y == 0) {
+                king = (King) p;
             }
         }
-        System.out.println(knight.getInfluence(board.pieces, 8, 8));
+        System.out.println(king.getInfluence(board.pieces, 8, 8));
     }
 }

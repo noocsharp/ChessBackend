@@ -74,38 +74,6 @@ public class Pawn extends Piece {
             if (!found2Front) {
                 influence.add(new Tuple(this.pos.x, this.pos.y+orient(2, this.color)));
             }
-            // enclosed in try-catch block because will throw error if pawn is on the edge, could change it to make it less pythonic
-            /*
-            try {
-                // checks square in front and right of the pawn
-                if (chessboard.getChessboardArray()[position.x + 1][position.y + orient(1, this.color)].color == Utilities.oppositeColor(this.color)) {
-                    influence.add(new Tuple<>(position.x + 1, position.y + orient(1, this.color)));
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println(e.toString());
-            }
-
-            try {
-                // checks square in front and left of the pawn
-                if (chessboard.getChessboardArray()[position.x - 1][position.y + orient(1, this.color)].color == Utilities.oppositeColor(this.color)) {
-                    System.out.println("x-1 is good.");
-                    influence.add(new Tuple<>(position.x - 1, position.y + orient(1, this.color)));
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println(e.toString());
-            }
-
-            // check if two-square move is possible
-            if (!piece.hasMoved) {
-                if (chessboard.getChessboardArray()[position.x][position.y + orient(2, piece.color)] instanceof Filler) {
-                    influence.add(new Tuple<>(position.x, position.y + orient(2, piece.color)));
-                }
-                piece.hasMoved = true;
-            }
-
-            // en passant needs to be implemented
-
-        */
         }
         return influence;
     }

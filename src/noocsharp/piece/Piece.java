@@ -25,4 +25,8 @@ public class Piece {
     public HashSet<Tuple<Integer, Integer>> getInfluence(ArrayList<Piece> pieces, int width, int height) {
         return new HashSet<>();
     }
+
+    public void setPos(Tuple<Integer, Integer> newPos) {
+        pos = newPos;
+    }
 }

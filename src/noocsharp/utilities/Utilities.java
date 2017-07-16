@@ -42,6 +42,16 @@ public class Utilities {
         return null;
     }
 
+    public static int indexFromPos(ArrayList<Piece> pieces, Tuple<Integer, Integer> pos) {
+        for (int i = 0; i < pieces.size(); i++) {
+            Piece p = pieces.get(i);
+            if (p.pos.x == pos.x && p.pos.y == pos.y) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     // finds the max int in an array
     public static int max(Integer[] array) {
         int max = array[1];
