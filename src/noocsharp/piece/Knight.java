@@ -44,14 +44,9 @@ public class Knight extends Piece{
                             ti.remove();
                         }
                     }
+                } else {
+                    ti.remove();
                 }
-            }
-        }
-
-        for (Iterator t2i = positions.iterator(); t2i.hasNext();) {
-            Tuple t = (Tuple) t2i.next();
-            if (!t.isPositive()) {
-                t2i.remove();
             }
         }
 
