@@ -22,6 +22,7 @@ public class Utilities {
         return 0;
     }
 
+    // returns black if white and white if black (necessary because Color.NONE)
     public static Color oppositeColor(Color color) {
         if (color == Color.WHITE) {
             return Color.BLACK;
@@ -31,31 +32,43 @@ public class Utilities {
         return Color.NONE;
     }
 
-    public static ArrayList<Tuple<Integer, Integer>> getInfluence(Chessboard chessboard, Tuple<Integer, Integer> position) {
-
-        Piece piece = chessboard.getChessboardArray()[position.x][position.y];
-        if (piece instanceof Pawn) {
-            return pawnInfluence(chessboard, position, piece);
-        } else if (piece instanceof Rook) {
-            return rookInfluence(chessboard, position, piece);
-        } else if (piece instanceof Bishop) {
-            return bishopInfluence(chessboard, position, piece);
-        } else if (piece instanceof Queen) {
-            return queenInfluence(chessboard, position, piece);
-        } else if (piece instanceof Knight) {
-            return knightInfluence(chessboard, position, piece);
-        } else if (piece instanceof King) {
-            return kingInfluence(chessboard, position, piece);
+    // returns piece if piece's position is tuple
+    public static Piece searchForPos(ArrayList<Piece> pieces, Tuple<Integer, Integer> pos) {
+        for (Piece p : pieces) {
+            if (p.pos.x == pos.x && p.pos.y == pos.y) {
+                return p;
+            }
         }
-
-        return new ArrayList<>();
+        return null;
     }
 
-    private static ArrayList<Tuple<Integer, Integer>> pawnInfluence(Chessboard chessboard, Tuple<Integer, Integer> position, Piece piece) {
+    public static int indexFromPos(ArrayList<Piece> pieces, Tuple<Integer, Integer> pos) {
+        for (int i = 0; i < pieces.size(); i++) {
+            Piece p = pieces.get(i);
+            if (p.pos.x == pos.x && p.pos.y == pos.y) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // finds the max int in an array
+    public static int max(Integer[] array) {
+        int max = array[1];
+        for (int i : array) {
+            if (i > max) {
+                max = i;
+            }
+        }
+        return max;
+    }
+
+
+   /* public static ArrayList<Tuple<Integer, Integer>> pawnInfluence(ArrayList<Piece> pieces, Piece piece, int width, int height) {
         ArrayList<Tuple<Integer, Integer>> influence = new ArrayList<>();
 
         // makes sure position is inside the board
-        if (position.x >= 0 && position.y >= 0 && position.x < chessboard.WIDTH && position.y < chessboard.HEIGHT) {
+        if (piece.pos.x >= 0 && piece.pos.y >= 0 && piece.pos.x < width && piece.pos.y < chessboard.HEIGHT) {
             // checks square immediately in front of pawn
             if (chessboard.getChessboardArray()[position.x][position.y + Utilities.orient(1, piece.color)] instanceof Filler) {
                 influence.add(new Tuple<>(position.x, position.y + Utilities.orient(1, piece.color)));
@@ -370,5 +383,5 @@ public class Utilities {
         } catch (ArrayIndexOutOfBoundsException e) {
         }
         return moves;
-    }
+    }*/
 }

@@ -42,4 +42,14 @@ public class Tuple<X, Y> {
         result = prime * result + ((y == null) ? 0 : y.hashCode());
         return result;
     }
+
+    // only for integer tuples
+    public boolean isPositive() {
+        if (x instanceof Integer && y instanceof Integer) {
+            if ((Integer) x >= 0 && (Integer) y >= 0) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

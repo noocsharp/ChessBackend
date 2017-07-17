@@ -1,9 +1,6 @@
 package noocsharp;
 
-import noocsharp.piece.Bishop;
-import noocsharp.piece.Filler;
-import noocsharp.piece.Pawn;
-import noocsharp.piece.Piece;
+import noocsharp.piece.*;
 import noocsharp.utilities.Color;
 import noocsharp.utilities.Tuple;
 import noocsharp.utilities.Utilities;
@@ -15,11 +12,23 @@ public class Main {
 
     public static void main(String[] args) {
         Chessboard board = new Chessboard(8, 8);
-        Piece[][] testBoard = board.getChessboardArray();
-        testBoard[4][1] = new Filler(Color.NONE);
-        testBoard[7][4] = new Bishop(Color.BLACK);
-        board.setChessboardArray(testBoard);
-        ArrayList<Tuple<Integer, Integer>> influence = Utilities.getInfluence(board, new Tuple<>(4, 0));
-        System.out.println(influence);
+        King king = null;
+        Rook rook = null;
+        Knight knight = null;
+        Bishop bishop = null;
+
+        for (Piece p : board.pieces) {
+            if (p.pos.x == 4 && p.pos.y == 0) {
+                king = (King) p;
+            }
+
+            if (p.pos.x == 2 && p.pos.y == 0) {
+                bishop = (Bishop) p;
+            }
+        }
+
+        board.removePiece(new Tuple<Integer, Integer>(4, 1));
+        board.makeMove(king.pos, new Tuple<Integer, Integer>(king.pos.x, king.pos.y+1));
+        System.out.println(king.getInfluence(board.pieces, 8, 8));
     }
 }
