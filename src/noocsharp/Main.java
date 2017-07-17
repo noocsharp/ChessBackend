@@ -15,23 +15,20 @@ public class Main {
         King king = null;
         Rook rook = null;
         Knight knight = null;
-        ArrayList<Piece> localPieces = board.pieces;
+        Bishop bishop = null;
 
         for (Piece p : board.pieces) {
             if (p.pos.x == 4 && p.pos.y == 0) {
                 king = (King) p;
             }
 
-            if (p.pos.x == 6 && p.pos.y == 0) {
-                knight = (Knight) p;
+            if (p.pos.x == 2 && p.pos.y == 0) {
+                bishop = (Bishop) p;
             }
         }
-        /*
+
+        board.removePiece(new Tuple<Integer, Integer>(4, 1));
         board.makeMove(king.pos, new Tuple<Integer, Integer>(king.pos.x, king.pos.y+1));
         System.out.println(king.getInfluence(board.pieces, 8, 8));
-        System.out.println(board.pieces);
-        */
-        knight.setPos(new Tuple<Integer, Integer>(3,2));
-        System.out.println(knight.getInfluence(board.pieces, 8, 8));
     }
 }

@@ -72,9 +72,10 @@ public class Chessboard {
     // Returns true if move is successful, false if move is invalid
     public boolean makeMove(Tuple<Integer, Integer> pos, Tuple<Integer, Integer> des) {
         int desPieceIndex = Utilities.indexFromPos(pieces, des);
+        int pieceIndex = Utilities.indexFromPos(pieces, pos);
         if (moveIsValid(pos, des)) {
-            pieces.get(Utilities.indexFromPos(pieces, pos)).setPos(des);
-            if (pieces.get(desPieceIndex) != null) {
+            pieces.get(pieceIndex).setPos(des);
+            if (desPieceIndex != -1) {
                 pieces.remove(desPieceIndex);
             }
             updateCheckStatus();

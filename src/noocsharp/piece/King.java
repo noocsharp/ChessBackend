@@ -41,14 +41,13 @@ public class King extends Piece {
                 continue;
             }
             for (Piece p : pieces) {
-                System.out.println(t + ", " + p.toString());
                 if (!(p instanceof King)) {
                     if (p.color == Utilities.oppositeColor(this.color)) {
                         if (p.getInfluence(pieces, width, height).contains(t)) {
                             pi.remove();
                             break;
                         }
-                    } else if (p.color == this.color) {
+                    } else if (p.color == this.color && p.pos.x == t.x && p.pos.y == t.y) {
                         pi.remove();
                         break;
                     }

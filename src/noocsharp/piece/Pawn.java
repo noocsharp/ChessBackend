@@ -22,7 +22,6 @@ public class Pawn extends Piece {
 
     public HashSet<Tuple<Integer, Integer>> getInfluence(ArrayList<Piece> pieces, int width, int height) {
         HashSet<Tuple<Integer, Integer>> influence = new HashSet<>();
-        System.out.println("Entered getInfluence");
 
         // makes sure position is inside the board
         if (this.pos.x >= 0 && this.pos.y >= 0 && this.pos.x < width && this.pos.y < height) {
