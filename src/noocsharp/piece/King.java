@@ -41,18 +41,21 @@ public class King extends Piece {
                 continue;
             }
             for (Piece p : pieces) {
-
-                if (p.color == Utilities.oppositeColor(this.color) && !(p instanceof King)) {
-                    if (p.getInfluence(pieces, width, height).contains(t)) {
+                System.out.println(t + ", " + p.toString());
+                if (!(p instanceof King)) {
+                    if (p.color == Utilities.oppositeColor(this.color)) {
+                        if (p.getInfluence(pieces, width, height).contains(t)) {
+                            pi.remove();
+                            break;
+                        }
+                    } else if (p.color == this.color) {
                         pi.remove();
                         break;
                     }
-                } else if (p.color == this.color) {
-                    pi.remove();
-                    break;
                 }
             }
         }
+
 
         influence = positions;
 

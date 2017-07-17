@@ -50,7 +50,7 @@ public class Rook extends Piece{
                 if (!doneDown) {
                     if (this.pos.y-i >= 0 && this.pos.y-i < height) {
                         if (searchDown == null) {
-                            influence.add(new Tuple<>(this.pos.x, this.pos.y+i));
+                            influence.add(new Tuple<>(this.pos.x, this.pos.y-i));
                         } else {
                             if (searchDown.color == this.color) {
                                 doneDown = true;
@@ -67,12 +67,12 @@ public class Rook extends Piece{
                 if (!doneRight) {
                     if (this.pos.x+i >= 0 && this.pos.x+i < height) {
                         if (searchRight == null) {
-                            influence.add(new Tuple<>(this.pos.x+1, this.pos.y));
+                            influence.add(new Tuple<>(this.pos.x+i, this.pos.y));
                         } else {
                             if (searchRight.color == this.color) {
                                 doneRight = true;
                             } else if (searchRight.color == Utilities.oppositeColor(this.color)) {
-                                influence.add(new Tuple<>(this.pos.x+1, this.pos.y));
+                                influence.add(new Tuple<>(this.pos.x+i, this.pos.y));
                                 doneRight = true;
                             }
                         }
@@ -84,12 +84,12 @@ public class Rook extends Piece{
                 if (!doneLeft) {
                     if (this.pos.x-i >= 0 && this.pos.x-i < height) {
                         if (searchLeft == null) {
-                            influence.add(new Tuple<>(this.pos.x-1, this.pos.y));
+                            influence.add(new Tuple<>(this.pos.x-i, this.pos.y));
                         } else {
                             if (searchLeft.color == this.color) {
                                 doneLeft = true;
                             } else if (searchLeft.color == Utilities.oppositeColor(this.color)) {
-                                influence.add(new Tuple<>(this.pos.x-1, this.pos.y));
+                                influence.add(new Tuple<>(this.pos.x-i, this.pos.y));
                                 doneLeft = true;
                             }
                         }

@@ -63,6 +63,7 @@ public class Chessboard {
         for (Iterator<Piece> iterator = pieces.iterator(); iterator.hasNext();) {
             Piece p = iterator.next();
             if (p.pos.x == pos.x && p.pos.y == pos.y) {
+                System.out.println("Removed " + p.getClass() + " at position " + (p.pos.toString()));
                 iterator.remove();
             }
         }
